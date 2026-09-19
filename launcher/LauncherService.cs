@@ -20,7 +20,7 @@ public record Preferences(string Gateway = "http://127.0.0.1:8190", bool AutoSta
 
 public sealed class LauncherService : IDisposable
 {
-    public const string Repository = "Sksandeep144/ProjectDoorango";
+    public const string Repository = "Kappach1n0D3V/ProjectDoorango";
     readonly HttpClient http = new() { Timeout = Timeout.InfiniteTimeSpan };
     readonly Action<string> log;
     Process? server;
@@ -70,6 +70,17 @@ public sealed class LauncherService : IDisposable
                     break;
                 }
         return prefs;
+    }
+
+    public static string NormalizeGateway(string address)
+    {
+        address = address.Trim();
+        if (!address.Contains("://"))
+        {
+            var uri = ParseGateway("http://" + address);
+            address = new UriBuilder(uri) { Port = uri.IsDefaultPort && !address.EndsWith(":80") ? 8190 : uri.Port }.Uri.GetLeftPart(UriPartial.Authority);
+        }
+        return ParseGateway(address).GetLeftPart(UriPartial.Authority);
     }
 
     public static Uri ParseGateway(string gateway)

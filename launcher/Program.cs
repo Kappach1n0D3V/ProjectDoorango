@@ -22,6 +22,7 @@ internal static class Program
         if (args.Length == 2 && args[0] == "--download-smoke")
             return LauncherChecks.DownloadSmoke(root, args[1]).GetAwaiter().GetResult();
         bool preview = args.Length >= 2 && args[0] == "--preview";
+        if (preview && args.Length > 3) root = Path.GetFullPath(args[3]);
         var app = new Application();
         app.DispatcherUnhandledException += (_, e) =>
         {

@@ -38,6 +38,11 @@ internal static class LauncherChecks
             Check(saved.Contains("account=keep-this-key") && saved.Contains("# keep comment") && saved.Contains("name=My world"), "gateway edits preserve account, comments and name");
             Check(saved.Split("gateway=").Length == 2, "duplicate gateway lines collapse to one");
             Check(service.LoadPreferences().Gateway == "http://127.0.0.1:8190", "settings round-trip");
+            Check(LauncherService.NormalizeGateway("192.168.1.20") == "http://192.168.1.20:8190", "bare IP defaults to gateway port 8190");
+            Check(LauncherService.NormalizeGateway("example.com:8290") == "http://example.com:8290", "custom gateway port preserved");
+            Check(LauncherService.NormalizeGateway("https://example.com") == "https://example.com", "HTTPS gateway preserved");
+            Check(LauncherService.NormalizeGateway("example.com:80") == "http://example.com", "explicit HTTP default port preserved");
+            await Reject(() => { LauncherService.NormalizeGateway("example.com/path"); return Task.CompletedTask; }, "IP entry rejects paths");
             foreach (string address in new[] { "file:///C:/test", "https://user:password@example.com", "https://example.com/path", "not a url" })
                 await Reject(() => { LauncherService.ParseGateway(address); return Task.CompletedTask; }, "reject invalid gateway " + address.Split(':')[0]);
             Check(LauncherService.CanStartLocal("http://localhost:8190") && !LauncherService.CanStartLocal("https://example.com"), "remote gateways cannot start a local server");

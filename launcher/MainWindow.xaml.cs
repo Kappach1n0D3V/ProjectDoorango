@@ -27,7 +27,7 @@ public partial class MainWindow : Window
         service = new LauncherService(root, Log);
         prefs = service.LoadPreferences();
         GatewayInput.Text = prefs.Gateway;
-        AutoStartInput.IsChecked = prefs.AutoStart;
+        RemoteGatewayInput.Text = prefs.Gateway;
         RootLabel.Text = "Installation folder: " + service.Root;
         ShowPage("Home");
         UpdateControls();
@@ -58,19 +58,20 @@ public partial class MainWindow : Window
         ClientStatus.Text = service.GameInstalled ? "Ready to play" : "Download needed";
         string installed = service.InstalledVersion();
         ClientVersion.Text = installed.Length == 40 ? "ProjectDoorango · " + installed[..7] : installed;
-        PlayButton.Content = service.GameInstalled ? "Play Durango  →" : "Install & Play  ↓";
+        PlayButton.Content = service.GameInstalled ? "Play Durango  →" : "Install game  ↓";
         PlayDescription.Text = service.GameInstalled
-            ? "Your game is installed. Play starts your server and opens Durango."
-            : "One click downloads the game, sets up your world, and starts your adventure.";
+            ? "Start your own server, or enter another server’s IP below. Then press Play."
+            : "Install and verify the game files first. Then choose where you want to play.";
         GatewaySummary.Text = prefs.Gateway;
         ServerStatus.Text = service.OwnsServer ? "Running" : service.ServerInstalled ? "Ready to start" : "Not installed";
         ServerHint.Text = service.OwnsServer ? "Started by this launcher" : "Your own world, on this PC";
         PlayButton.IsEnabled = !busy;
-        StartButton.IsEnabled = !busy && !service.OwnsServer && service.ServerInstalled;
+        StartButton.IsEnabled = !busy && !service.OwnsServer && service.GameInstalled && !service.GameRunning;
         StopButton.IsEnabled = !busy && service.OwnsServer;
         SaveButton.IsEnabled = !busy && !service.OwnsServer;
         GatewayInput.IsEnabled = !busy && !service.OwnsServer;
-        AutoStartInput.IsEnabled = !busy;
+        RemoteGatewayInput.IsEnabled = !busy && !service.OwnsServer && !service.GameRunning;
+        UseServerButton.IsEnabled = RemoteGatewayInput.IsEnabled;
         CheckButton.IsEnabled = !busy;
         InstallClientButton.IsEnabled = !busy && release != null;
         InstallServerButton.IsEnabled = !busy && !Directory.Exists(service.Server);
@@ -85,7 +86,7 @@ public partial class MainWindow : Window
         {
             bool online = await service.IsOnlineAsync(prefs.Gateway);
             if (closing) return;
-            StatusBadge.Text = online ? "●  SERVER ONLINE" : LauncherService.CanStartLocal(prefs.Gateway) && prefs.AutoStart ? "●  STARTS WHEN YOU PLAY" : "●  SERVER OFFLINE";
+            StatusBadge.Text = online ? "●  SERVER ONLINE" : LauncherService.CanStartLocal(prefs.Gateway) ? "●  START YOUR SERVER" : "●  SERVER OFFLINE";
             StatusBadge.Foreground = (Brush)new BrushConverter().ConvertFromString(online ? "#F0BE76" : "#E1BF84")!;
             UpdateControls();
             if (online && !service.OwnsServer)
@@ -168,21 +169,38 @@ public partial class MainWindow : Window
             {
                 release = await service.LatestSnapshotAsync(token);
                 await service.InstallClientAsync(release, prefs, Transfer(), token);
+                return;
             }
-            if (prefs.AutoStart && LauncherService.CanStartLocal(prefs.Gateway) && !service.ServerInstalled)
-                await service.InstallServerAsync(Transfer(), token, release);
-            service.SavePreferences(prefs);
+            service.SavePreferences(prefs with { AutoStart = false });
             if (!await service.IsOnlineAsync(prefs.Gateway, token))
             {
-                if (prefs.AutoStart && LauncherService.CanStartLocal(prefs.Gateway)) await service.StartServerAsync(prefs.Gateway, token);
-                else throw new InvalidOperationException("The selected server is offline. Start it or change your connection in Settings.");
+                throw new InvalidOperationException("Server unavailable. Click Start server to host your world, or enter an online server’s IP and choose Use server.");
             }
             token.ThrowIfCancellationRequested();
             service.LaunchGame();
         });
     }
 
-    async void StartServer(object sender, RoutedEventArgs e) => await Run("Starting local server…", t => service.StartServerAsync(prefs.Gateway, t));
+    async void StartServer(object sender, RoutedEventArgs e) => await Run("Starting your local world…", async token =>
+    {
+        if (service.GameRunning) throw new InvalidOperationException("Close the game before switching servers.");
+        if (!service.ServerInstalled) await service.InstallServerAsync(Transfer(), token, release);
+        string gateway = LauncherService.CanStartLocal(prefs.Gateway) ? prefs.Gateway : "http://127.0.0.1:8190";
+        await service.StartServerAsync(gateway, token);
+        prefs = new(gateway, false);
+        service.SavePreferences(prefs);
+        GatewayInput.Text = RemoteGatewayInput.Text = gateway;
+    });
+
+    async void UseServer(object sender, RoutedEventArgs e) => await Run("Selecting server…", _ =>
+    {
+        if (service.OwnsServer || service.GameRunning) throw new InvalidOperationException("Close the game and stop your local server before switching servers.");
+        var updated = new Preferences(LauncherService.NormalizeGateway(RemoteGatewayInput.Text), false);
+        service.SavePreferences(updated);
+        prefs = updated;
+        GatewayInput.Text = RemoteGatewayInput.Text = prefs.Gateway;
+        return Task.CompletedTask;
+    });
     async void StopServer(object sender, RoutedEventArgs e) => await Run("Saving and stopping server…", _ => service.StopServerAsync(), false);
     async void RefreshClick(object sender, RoutedEventArgs e) => await RefreshStatus();
     async void CheckRelease(object sender, RoutedEventArgs e) => await CheckLatest();
@@ -190,7 +208,7 @@ public partial class MainWindow : Window
     {
         release = await service.LatestSnapshotAsync(token);
         string status = service.InstalledVersion() == release.Commit ? "Up to date. " : "";
-        ReleaseInfo.Text = $"{status}Revision {release.Revision}  ·  {release.ClientSize / 1073741824d:F2} GiB installed  ·  Sksandeep144/ProjectDoorango";
+        ReleaseInfo.Text = $"{status}Revision {release.Revision}  ·  {release.ClientSize / 1073741824d:F2} GiB installed  ·  {LauncherService.Repository}";
         InstallClientButton.Content = service.GameInstalled ? $"Install / repair {release.Revision}" : $"Install {release.Revision}";
         Log("Latest ProjectDoorango revision: " + release.Commit + " (per-file Git verification).");
     });
@@ -211,9 +229,11 @@ public partial class MainWindow : Window
     {
         await Run("Saving settings…", _ =>
         {
-            var updated = new Preferences(GatewayInput.Text.Trim(), AutoStartInput.IsChecked == true);
+            if (service.GameRunning) throw new InvalidOperationException("Close the game before switching servers.");
+            var updated = new Preferences(LauncherService.NormalizeGateway(GatewayInput.Text), false);
             service.SavePreferences(updated);
             prefs = updated;
+            GatewayInput.Text = RemoteGatewayInput.Text = prefs.Gateway;
             Log("Connection settings saved. Account key preserved.");
             return Task.CompletedTask;
         });
