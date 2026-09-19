@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>ProjectDoorango</AssemblyName>
-    <Version>0.1.2</Version>
+    <Version>0.1.3</Version>
     <ApplicationIcon>Assets/Doorango.ico</ApplicationIcon>
     <StartupObject>ProjectDoorango.Program</StartupObject>
   </PropertyGroup>

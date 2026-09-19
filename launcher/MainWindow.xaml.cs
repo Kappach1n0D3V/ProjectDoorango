@@ -26,7 +26,6 @@ public partial class MainWindow : Window
         this.preview = preview;
         service = new LauncherService(root, Log);
         prefs = service.LoadPreferences();
-        GatewayInput.Text = prefs.Gateway;
         RemoteGatewayInput.Text = prefs.Gateway;
         RootLabel.Text = "Installation folder: " + service.Root;
         ShowPage("Home");
@@ -68,8 +67,6 @@ public partial class MainWindow : Window
         PlayButton.IsEnabled = !busy;
         StartButton.IsEnabled = !busy && !service.OwnsServer && service.GameInstalled && !service.GameRunning;
         StopButton.IsEnabled = !busy && service.OwnsServer;
-        SaveButton.IsEnabled = !busy && !service.OwnsServer;
-        GatewayInput.IsEnabled = !busy && !service.OwnsServer;
         RemoteGatewayInput.IsEnabled = !busy && !service.OwnsServer && !service.GameRunning;
         UseServerButton.IsEnabled = RemoteGatewayInput.IsEnabled;
         CheckButton.IsEnabled = !busy;
@@ -189,7 +186,7 @@ public partial class MainWindow : Window
         await service.StartServerAsync(gateway, token);
         prefs = new(gateway, false);
         service.SavePreferences(prefs);
-        GatewayInput.Text = RemoteGatewayInput.Text = gateway;
+        RemoteGatewayInput.Text = gateway;
     });
 
     async void UseServer(object sender, RoutedEventArgs e) => await Run("Selecting server…", _ =>
@@ -198,7 +195,7 @@ public partial class MainWindow : Window
         var updated = new Preferences(LauncherService.NormalizeGateway(RemoteGatewayInput.Text), false);
         service.SavePreferences(updated);
         prefs = updated;
-        GatewayInput.Text = RemoteGatewayInput.Text = prefs.Gateway;
+        RemoteGatewayInput.Text = prefs.Gateway;
         return Task.CompletedTask;
     });
     async void StopServer(object sender, RoutedEventArgs e) => await Run("Saving and stopping server…", _ => service.StopServerAsync(), false);
@@ -225,20 +222,6 @@ public partial class MainWindow : Window
     async void InstallServer(object sender, RoutedEventArgs e) => await Run("Downloading server and assets…", t => service.InstallServerAsync(Transfer(), t, release));
     void Cancel(object sender, RoutedEventArgs e) { operation?.Cancel(); OperationText.Text = "Cancelling safely…"; }
 
-    async void SaveSettings(object sender, RoutedEventArgs e)
-    {
-        await Run("Saving settings…", _ =>
-        {
-            if (service.GameRunning) throw new InvalidOperationException("Close the game before switching servers.");
-            var updated = new Preferences(LauncherService.NormalizeGateway(GatewayInput.Text), false);
-            service.SavePreferences(updated);
-            prefs = updated;
-            GatewayInput.Text = RemoteGatewayInput.Text = prefs.Gateway;
-            Log("Connection settings saved. Account key preserved.");
-            return Task.CompletedTask;
-        });
-    }
-
     void Open(string path) { try { Process.Start(new ProcessStartInfo(path) { UseShellExecute = true }); } catch (Exception e) { OperationText.Text = e.Message; } }
     void OpenGameFolder(object sender, RoutedEventArgs e) { Directory.CreateDirectory(service.Game); Open(service.Game); }
     void OpenPlayerLog(object sender, RoutedEventArgs e)
@@ -249,6 +232,8 @@ public partial class MainWindow : Window
     void OpenBackups(object sender, RoutedEventArgs e) { string path = Path.Combine(service.State, "backups"); Directory.CreateDirectory(path); Open(path); }
     void OpenLauncherLog(object sender, RoutedEventArgs e) => Open(Path.Combine(service.State, "launcher.log"));
     void OpenSdk(object sender, RoutedEventArgs e) => Open("https://dotnet.microsoft.com/en-us/download/dotnet/9.0");
+    void OpenPlayit(object sender, RoutedEventArgs e) => Open("https://playit.gg/");
+    void OpenPlayitGuide(object sender, RoutedEventArgs e) => Open("https://playit.gg/support/");
     void OpenCredits(object sender, RoutedEventArgs e) => Open("https://github.com/ShuuuuShi/Durango-CustomServer");
 
     async void OnClosing(object? sender, CancelEventArgs e)

@@ -42,6 +42,28 @@ You only need the launcher EXE. The server ZIP in the release assets is download
 
 Close the game and stop any server owned by this launcher before switching addresses. Ask the host for the gateway address; the game and gateway ports are different.
 
+## Playit setup (no router port forwarding)
+
+**Status: preparation guide, not a working end-to-end hosting feature yet.** The current launcher starts the server with a localhost public address, and the server advertises its internal ports. Playit usually assigns different public hostnames/ports. Creating the tunnels below alone will not make this build remotely playable.
+
+Only the host installs Playit; players use ProjectDoorango normally. Generic TCP tunnels currently require [Playit Premium](https://playit.gg/). Check the current plan before purchasing; ProjectDoorango's public-endpoint support is still pending.
+
+1. Create an account at [playit.gg](https://playit.gg/), download its Windows agent and run it on the PC hosting Durango.
+2. Follow the agent's account-linking instructions. Keep the agent running and select it when creating tunnels in the Playit dashboard.
+3. Create **two custom TCP tunnels**, each for one port, with these local destinations (assuming the default Durango ports):
+
+   | Tunnel | Local destination | Purpose |
+   | --- | --- | --- |
+   | Gateway | `127.0.0.1:8190` | Login and gateway HTTP requests |
+   | Gameplay | `127.0.0.1:8191` | Game connection and notifications |
+
+4. Leave **Proxy Protocol disabled**; Durango expects its original HTTP/game traffic. Record the public hostname and assigned port for each tunnel. The two public addresses may differ.
+5. **Required before proceeding:** the server must advertise the public gameplay hostname/port in its connection responses, use the public gateway URL for generated URLs, and accept requests using the gateway tunnel hostname. These settings are not available in the current bundled server/launcher. The existing `--public-host` flag alone does not handle separate public ports and hostnames.
+6. Once that support is implemented and tested, start the local server and keep both it and the Playit agent running. Friends enter `http://PUBLIC_GATEWAY_HOST:PUBLIC_GATEWAY_PORT` in **Overview → Join a server**, click **Use server**, then **Play**. Share the gateway address, not the gameplay address. Friends do not start a local server or install Playit.
+7. Validate from a different internet connection: gateway availability alone is insufficient; login and entry into the game world must both succeed. Remote Playit gameplay has not yet been verified for this project.
+
+The same preparation guide is under **Settings → Host through Playit**. Server selection lives only on Overview. See [Playit's support documentation](https://playit.gg/support/) for agent and tunnel troubleshooting.
+
 ## Updates, saves, and troubleshooting
 
 - **Launcher update:** close the launcher, download the latest EXE, and replace it in the same folder. Launcher self-update is not yet implemented.
