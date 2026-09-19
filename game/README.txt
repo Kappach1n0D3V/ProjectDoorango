@@ -1,19 +1,12 @@
-Durango OffServer — ตัวเกมสำหรับเข้าเซิร์ฟ (v2.6)
-================================================
-
-วิธีเล่น
-  1. แตก zip ไว้ที่ไหนก็ได้ (ห้ามอยู่ในโฟลเดอร์ที่ต้องสิทธิ์ admin เช่น Program Files)
-  2. เปิด DurangoLauncher.exe → รอเช็คเวอร์ชัน → กด "เล่น"
-  3. ครั้งแรกสร้างตัวละครในเกมได้เลย
-
-อัปเดต
-  launcher เช็คเวอร์ชันกับเซิร์ฟทุกครั้งที่เปิด · มีใหม่จะขึ้นปุ่ม "อัปเดต" — กดแล้วรอโหลดจบ ไม่ต้องโหลด zip ใหม่เอง
-
-offserver.txt
-  ไฟล์ตั้งค่าที่เกมอ่าน · gateway=http://187.53.129.69:8290 คือเซิร์ฟ · ลบไฟล์ = กลับไปเล่น offline คนเดียว
-  ตัวละครผูกกับเครื่อง (device id) — ถ้าจะย้ายเครื่องให้เติมบรรทัด  account=<คำเดียวกันทั้งสองเครื่อง>  ก่อนเข้าเกมครั้งแรก
-
-ปัญหาที่พบบ่อย
-  · เปิดแล้วไม่ขึ้นอะไรเลย → ดู player.log ในโฟลเดอร์เกม และ %TEMP%\DurangoLauncher.log
-  · Windows SmartScreen เตือน → More info → Run anyway (ไฟล์ไม่ได้เซ็นชื่อ)
-  · เข้าโลกไม่ได้ / ค้างที่โหลด → เซิร์ฟอาจปิดอยู่ ดูสถานะมุมขวาบนของ launcher
+ProjectDoorango — Game Client
+
+Run ProjectDoorango.exe in the parent folder, then choose Play Durango.
+For a fresh installation, download the launcher from:
+https://github.com/Sksandeep144/ProjectDoorango/releases/latest
+
+The launcher installs the game and local server automatically.
+Keep it open while playing so its local server remains running.
+Connection settings are stored in offserver.txt; preserve account= when moving PCs.
+
+Credits: ShuuuuShi (https://github.com/ShuuuuShi).
+Original game: NEXON / What! Studio.

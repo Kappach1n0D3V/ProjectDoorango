@@ -33,3 +33,7 @@ __pycache__/
 /ProjectDoorango.exe
 /launcher/publish/
 /launcher/preview*.png
+
+# Superseded upstream updater (ProjectDoorango handles installation)
+/game/DurangoLauncher.exe
+/game/manifest-v*.json
