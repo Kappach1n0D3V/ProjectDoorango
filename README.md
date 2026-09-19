@@ -20,6 +20,8 @@ Eight mammoth-family types still need adult/baby run mapping resolved; one decor
 
 ## Build and run
 
+Download [ProjectDoorango.exe](https://github.com/Sksandeep144/ProjectDoorango/releases/latest/download/ProjectDoorango.exe) into an empty writable folder and click **Install & Play**. No separate .NET installation is needed. It provides Play, server controls, GitHub downloads, connection settings and logs. See [launcher/README.md](launcher/README.md) for build instructions and current limitations.
+
 Requires the **.NET 9 SDK**. From the repository root:
 
 ```powershell

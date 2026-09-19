@@ -19,6 +19,7 @@ namespace DurangoServerNx;
 //                   [--max-players N] [--cluster-mode Offline|Online|Editable]
 internal static class Program
 {
+    internal const int LauncherControlProtocol = 1; // stdin "stop" saves on the main loop before exit.
     private static int _ticksPerSecond = 120;
 
     /// <summary>host ที่กำลังรัน — ให้ตัวจัดการปิดเครื่องเซฟได้ก่อนออก</summary>
@@ -300,7 +301,20 @@ internal static class Program
         long lastSave = 0;
         int loopErrors = 0;
         ServerMetrics.MarkBoot();
-        while (true)
+        int stopRequested = 0;
+        if (Console.IsInputRedirected)
+        {
+            _ = System.Threading.Tasks.Task.Run(() =>
+            {
+                while (Console.ReadLine() is { } command)
+                    if (string.Equals(command.Trim(), "stop", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Volatile.Write(ref stopRequested, 1);
+                        break;
+                    }
+            });
+        }
+        while (Volatile.Read(ref stopRequested) == 0)
         {
             // [5 ก.ย. 2026] จับเวลาต่อรอบให้ /health อ่าน — ใช้ Stopwatch.GetTimestamp() ซึ่งเป็นการ
             // อ่านตัวนับของ CPU ตรง ๆ (ระดับ 20 ns) ไม่ได้สร้าง object อะไร ⇒ ใส่ในลูป 120 รอบ/วิ ได้
@@ -336,6 +350,8 @@ internal static class Program
             }
             ServerMetrics.RecordTick(System.Diagnostics.Stopwatch.GetTimestamp() - tickBegin, workEnd - tickBegin);
         }
+        ShutdownSafely("launcher stop");
+        return 0;
     }
 
     private static Durango.Logic.Clusters.Mode ToEnum(this string s, Durango.Logic.Clusters.Mode def) =>

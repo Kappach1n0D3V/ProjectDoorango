@@ -32,6 +32,12 @@ Real game menus, island rendering, reconnect persistence, and multiplayer sessio
 
 ## Remaining findings
 
+### Launcher release — 19 September 2026
+
+A local Windows launcher now covers the batch-file controls plus client/server downloads from ProjectDoorango, per-file verification against GitHub Git blob hashes, shared archive caching, backups, cancellation, settings preservation and an activity log. Graceful server shutdown runs through the main loop after a launcher `stop` command. The launcher checks the compiled server's control protocol before taking ownership of it. The release includes a standalone launcher and checksum-verified server runtime; Install & Play downloads missing game and server files. See `launcher/README.md` for verification and remaining download/release limitations.
+
+The game client was uploaded to ProjectDoorango in commit `6b59af6`: all 4,460 remote game-file hashes match the local commit. Personal connection settings and logs remain excluded.
+
 | Area | Local source finding | Remaining work |
 | --- | --- | --- |
 | Estates and estate visits | Implementations exist in `Player.PersonalRegion.cs` | End-to-end client checks, including permissions and travel |
@@ -45,7 +51,7 @@ Real game menus, island rendering, reconnect persistence, and multiplayer sessio
 | Shared music | Publishing and shared playback are unavailable | Shared storage and playback protocol |
 | Map landmarks | World construction clears `global_landmarks` | Verify client expectations and terrain landmark data |
 | Animal run animations | 205 types use verified run clips; 8 mammoth-family types have ambiguous adult/baby mappings, and `Watermelon_Stand` has no verified run mapping | Resolve those variants; verify animations in the running game |
-| Launcher updates | Client binaries present; no client/launcher source project in this folder | Obtain matching source or inspect binaries before changing behavior |
+| Launcher updates | Native launcher source included; full client downloads and standalone server runtime supported | Incremental patches and launcher self-update remain unimplemented |
 
 This is an initial audit, not a claim that every remaining feature has been identified or repaired.
 

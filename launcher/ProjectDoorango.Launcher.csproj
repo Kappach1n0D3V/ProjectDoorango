@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>ProjectDoorango</AssemblyName>
+    <Version>0.1.0</Version>
+    <StartupObject>ProjectDoorango.Program</StartupObject>
+  </PropertyGroup>
+</Project>
