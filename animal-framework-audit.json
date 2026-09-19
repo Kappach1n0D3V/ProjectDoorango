@@ -1,0 +1,440 @@
+{
+  "mapped_types": 205,
+  "total_types": 214,
+  "unresolved": {
+    "2139": {
+      "move": "Watermelon_Stand",
+      "candidates": []
+    },
+    "2153": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    },
+    "2154": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    },
+    "2150": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    },
+    "2151": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    },
+    "2109": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    },
+    "2008": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    },
+    "2087": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    },
+    "2102": {
+      "move": "Mammoth_Walk",
+      "candidates": [
+        "Mammoth_Run",
+        "Mammoth_Run_Baby"
+      ]
+    }
+  },
+  "verified_assets": [
+    {
+      "bundle": "models$animals$allosaurus$allosaurus_framework.asset.a95497f438761429b60170d9a42162a0.bundle",
+      "set": "allosaurus_move_set",
+      "run": "Allo_Run"
+    },
+    {
+      "bundle": "models$animals$andrewsarchus$andrewsarchus_framework.asset.de301d365223489af326bfb7f26efb4b.bundle",
+      "set": "Andrewsarchus_move_set",
+      "run": "Andrew_Run"
+    },
+    {
+      "bundle": "models$animals$ankylosaurus$ankylosaurus_framework.asset.1b83c073b5cd3256d7918ebe37b25dcb.bundle",
+      "set": "ankylosaurus_move_set",
+      "run": "Ankylo_Run"
+    },
+    {
+      "bundle": "models$animals$ankylosaurus$ankylosaurus_framework.asset.1b83c073b5cd3256d7918ebe37b25dcb.bundle",
+      "set": "ankylosaurus_slow_move_set",
+      "run": "Ankylo_Run"
+    },
+    {
+      "bundle": "models$animals$ankylosaurus$ankylosaurus_framework.asset.1b83c073b5cd3256d7918ebe37b25dcb.bundle",
+      "set": "ankylosaurus_move_p2_set",
+      "run": "Ankylo_Run"
+    },
+    {
+      "bundle": "models$animals$apatosaurus$apatosaurus_framework.asset.cf5e44b67b645b9d625bd7ad1768d1c7.bundle",
+      "set": "apatosaurus_move_set",
+      "run": "Apato_Run"
+    },
+    {
+      "bundle": "models$animals$brachio$brachio_framework.asset.c2312fd11c0ed1da7fbe44dda6a2c7b2.bundle",
+      "set": "brachio_move_set",
+      "run": "Brachio_Run"
+    },
+    {
+      "bundle": "models$animals$brachio_junior$brachio_junior_framework.asset.0c662bcace70604236753f7611157843.bundle",
+      "set": "brachio_junior_move_set",
+      "run": "Brachio_junior_Run_Pet"
+    },
+    {
+      "bundle": "models$animals$compso$compso_framework.asset.9f993fb4da1c8a7ce71eba65048dbc6f.bundle",
+      "set": "compsognathus_move_set",
+      "run": "Compso_Run"
+    },
+    {
+      "bundle": "models$animals$dimetrodon$dimetrodon_framework.asset.80c14d6e5810939f3af55a642f4b877c.bundle",
+      "set": "dimetrodon_move_set",
+      "run": "Dimetrodon_Run"
+    },
+    {
+      "bundle": "models$animals$direwolf$direwolf_framework.asset.cbea9009bf0f3549cd40683a623d8610.bundle",
+      "set": "direwolf_move_set",
+      "run": "Wolf_Run"
+    },
+    {
+      "bundle": "models$animals$dog$dog_framework.asset.6af16cb616a6d98379eb4e588fe7c4cd.bundle",
+      "set": "dog_move_set",
+      "run": "Dog_Run"
+    },
+    {
+      "bundle": "models$animals$horseshoecrab$horseshoecrab_framework.asset.c4d56d75c6d2657e99a6c1b488827e09.bundle",
+      "set": "horseshoecrab_move_set",
+      "run": "HorseshoeCrab_Run"
+    },
+    {
+      "bundle": "models$animals$humanfemale$humanfemale_framework.asset.5d1b0d05ac2e99ec16d6fc05fd45a4b2.bundle",
+      "set": "humanfemale_move_set",
+      "run": "Onehand_Run"
+    },
+    {
+      "bundle": "models$animals$humanfemale$humanfemale_framework.asset.5d1b0d05ac2e99ec16d6fc05fd45a4b2.bundle",
+      "set": "humanfemale_move_set_battle",
+      "run": "F_Onehand_Run"
+    },
+    {
+      "bundle": "models$animals$humanmale$humanmale_framework.asset.5bff1c4b739b46a3507130d2d9709fc5.bundle",
+      "set": "humanmale_move_set",
+      "run": "Onehand_Run"
+    },
+    {
+      "bundle": "models$animals$humanmale$humanmale_framework.asset.5bff1c4b739b46a3507130d2d9709fc5.bundle",
+      "set": "humanmale_move_set_battle",
+      "run": "M_Onehand_BattleRun"
+    },
+    {
+      "bundle": "models$animals$iguana$iguana_framework.asset.8552b45676898a45a3be2a24ae6a1e1d.bundle",
+      "set": "Iguana_move_set",
+      "run": "Iguana_Run"
+    },
+    {
+      "bundle": "models$animals$lizard$lizard_framework.asset.74ccb88cdaf65d104db79bdeeb8f59ac.bundle",
+      "set": "lizard_move_set",
+      "run": "Lizard_Run"
+    },
+    {
+      "bundle": "models$animals$macrauchenia$macrauchenia_framework.asset.e57ebcfaa9811ab5102010e8530172ae.bundle",
+      "set": "macrauchenia_move_set",
+      "run": "Macrau_Run"
+    },
+    {
+      "bundle": "models$animals$mammoth$mammoth_framework.asset.b3dd8fe184c22357bf6285e2d406e83d.bundle",
+      "set": "mammoth_move_set",
+      "run": "Mammoth_Run"
+    },
+    {
+      "bundle": "models$animals$mammoth$mammoth_framework.asset.b3dd8fe184c22357bf6285e2d406e83d.bundle",
+      "set": "mammoth_baby_move_set",
+      "run": "Mammoth_Run_Baby"
+    },
+    {
+      "bundle": "models$animals$ornithomimus$ornithomimus_framework.asset.85895b612880ca6a7f9d1045c0cb1c79.bundle",
+      "set": "ornithomimus_move_set",
+      "run": "Ornitho_Run"
+    },
+    {
+      "bundle": "models$animals$pachycephalo$pachycephalo_framework.asset.039b29ffa86632f3bcd79e1260ce8bc1.bundle",
+      "set": "pachycephalo_move_set",
+      "run": "Pachy_Run"
+    },
+    {
+      "bundle": "models$animals$parasaurolophus$parasaurolophus_framework.asset.228091209cbdf30dc248f7a326d84590.bundle",
+      "set": "parasaurolophus_move_set",
+      "run": "Para_Run"
+    },
+    {
+      "bundle": "models$animals$phenacodus$phenacodus_framework.asset.7e0226c8da54b94ad61a8a5e5ec01c82.bundle",
+      "set": "phenacodus_move_set",
+      "run": "Phenaco_Run"
+    },
+    {
+      "bundle": "models$animals$raptor$raptor_framework.asset.fc39aa32261ca74ed992a90388cd1135.bundle",
+      "set": "raptor_move_set",
+      "run": "Raptor_Run"
+    },
+    {
+      "bundle": "models$animals$sabertooth$sabertooth_framework.asset.3c7ad94aa3c6cdb571df96bbe1b91c5d.bundle",
+      "set": "sabertooth_move_set",
+      "run": "Sabertooth_Run"
+    },
+    {
+      "bundle": "models$animals$sabertooth$sabertooth_framework.asset.3c7ad94aa3c6cdb571df96bbe1b91c5d.bundle",
+      "set": "sabertooth_move_p2_set",
+      "run": "Sabertooth_Run"
+    },
+    {
+      "bundle": "models$animals$stegosaurus$stegosaurus_framework.asset.efbc75696ba0b7ce3f130be1ad9469f0.bundle",
+      "set": "stegosaurus_move_set",
+      "run": "Stego_Run"
+    },
+    {
+      "bundle": "models$animals$trex$trex_framework.asset.ad67a8c3ed9a5485fd597b3a1d882b0f.bundle",
+      "set": "trex_move_set",
+      "run": "TRex_Run"
+    },
+    {
+      "bundle": "models$animals$trex$trex_framework.asset.ad67a8c3ed9a5485fd597b3a1d882b0f.bundle",
+      "set": "trex_move_p2_set",
+      "run": "TRex_Run"
+    },
+    {
+      "bundle": "models$animals$tricera$tricera_framework.asset.59afdf5bbb67da6fdfa7329f6e4a0670.bundle",
+      "set": "triceratops_move_set",
+      "run": "Tricera_Run"
+    }
+  ],
+  "runs": {
+    "2138": "Sabertooth_Run",
+    "2199": "Sabertooth_Run",
+    "2007": "Sabertooth_Run",
+    "2110": "Raptor_Run",
+    "2999": "Raptor_Run",
+    "2001": "Raptor_Run",
+    "2078": "Raptor_Run",
+    "2047": "Sabertooth_Run",
+    "2039": "Raptor_Run",
+    "2029": "Raptor_Run",
+    "2002": "Raptor_Run",
+    "2175": "Raptor_Run",
+    "2161": "Raptor_Run",
+    "2157": "Sabertooth_Run",
+    "2122": "Raptor_Run",
+    "2024": "Raptor_Run",
+    "2111": "Sabertooth_Run",
+    "2100": "Raptor_Run",
+    "2023": "Raptor_Run",
+    "2088": "Sabertooth_Run",
+    "2121": "Sabertooth_Run",
+    "2077": "Raptor_Run",
+    "2051": "Raptor_Run",
+    "2200": "Macrau_Run",
+    "2211": "Macrau_Run",
+    "2197": "Macrau_Run",
+    "2165": "Macrau_Run",
+    "2163": "Ornitho_Run",
+    "2152": "Dog_Run",
+    "2131": "Dog_Run",
+    "2116": "Stego_Run",
+    "2026": "Stego_Run",
+    "2095": "Phenaco_Run",
+    "2006": "Phenaco_Run",
+    "2085": "Ornitho_Run",
+    "2084": "Stego_Run",
+    "2083": "Stego_Run",
+    "2117": "Stego_Run",
+    "2076": "Ornitho_Run",
+    "2075": "Stego_Run",
+    "2074": "Stego_Run",
+    "2073": "Tricera_Run",
+    "2072": "Tricera_Run",
+    "2068": "Ankylo_Run",
+    "2067": "Ankylo_Run",
+    "2065": "Tricera_Run",
+    "2061": "Stego_Run",
+    "2112": "Stego_Run",
+    "2000": "Stego_Run",
+    "2043": "Lizard_Run",
+    "2042": "Lizard_Run",
+    "2040": "Tricera_Run",
+    "2037": "Phenaco_Run",
+    "2036": "Compso_Run",
+    "2192": "Wolf_Run",
+    "2184": "Para_Run",
+    "2183": "Iguana_Run",
+    "2181": "Phenaco_Run",
+    "2180": "Phenaco_Run",
+    "2176": "Iguana_Run",
+    "2174": "Phenaco_Run",
+    "2173": "Phenaco_Run",
+    "2172": "Iguana_Run",
+    "2171": "HorseshoeCrab_Run",
+    "2167": "Phenaco_Run",
+    "2156": "Phenaco_Run",
+    "2141": "Phenaco_Run",
+    "2038": "Phenaco_Run",
+    "2129": "Phenaco_Run",
+    "2081": "Macrau_Run",
+    "2071": "Wolf_Run",
+    "2203": "Wolf_Run",
+    "2064": "Macrau_Run",
+    "2060": "Phenaco_Run",
+    "2140": "Phenaco_Run",
+    "2032": "Phenaco_Run",
+    "2052": "Phenaco_Run",
+    "2050": "Phenaco_Run",
+    "2049": "Phenaco_Run",
+    "2035": "Compso_Run",
+    "2034": "Dimetrodon_Run",
+    "2033": "Compso_Run",
+    "2027": "Tricera_Run",
+    "2046": "Para_Run",
+    "2031": "Para_Run",
+    "2030": "Para_Run",
+    "2182": "Compso_Run",
+    "2160": "Phenaco_Run",
+    "2159": "Phenaco_Run",
+    "2158": "Compso_Run",
+    "2155": "Compso_Run",
+    "2108": "Compso_Run",
+    "2015": "Compso_Run",
+    "2099": "Tricera_Run",
+    "2017": "Tricera_Run",
+    "2028": "Para_Run",
+    "2021": "Allo_Run",
+    "2010": "Ankylo_Run",
+    "2202": "Ankylo_Run",
+    "2193": "Ankylo_Run",
+    "2207": "Ankylo_Run",
+    "2191": "Wolf_Run",
+    "2189": "Ornitho_Run",
+    "2188": "Dimetrodon_Run",
+    "2044": "Dimetrodon_Run",
+    "2179": "Apato_Run",
+    "2187": "Apato_Run",
+    "2178": "Tricera_Run",
+    "2177": "Para_Run",
+    "2185": "Para_Run",
+    "2170": "Andrew_Run",
+    "2186": "Andrew_Run",
+    "2169": "Brachio_junior_Run_Pet",
+    "2133": "Apato_Run",
+    "2143": "Apato_Run",
+    "2126": "Ankylo_Run",
+    "2011": "Ankylo_Run",
+    "2125": "Ankylo_Run",
+    "2124": "Brachio_Run",
+    "2004": "Brachio_Run",
+    "2114": "TRex_Run",
+    "2005": "TRex_Run",
+    "2107": "Tricera_Run",
+    "2018": "Tricera_Run",
+    "2205": "Macrau_Run",
+    "2210": "Macrau_Run",
+    "2201": "Macrau_Run",
+    "2212": "Macrau_Run",
+    "2198": "Macrau_Run",
+    "2196": "Macrau_Run",
+    "2105": "Tricera_Run",
+    "2147": "Tricera_Run",
+    "2019": "Tricera_Run",
+    "2098": "Tricera_Run",
+    "2096": "Tricera_Run",
+    "2168": "Tricera_Run",
+    "2041": "Tricera_Run",
+    "2094": "Tricera_Run",
+    "2106": "Tricera_Run",
+    "2089": "TRex_Run",
+    "2113": "TRex_Run",
+    "2086": "TRex_Run",
+    "2115": "TRex_Run",
+    "2082": "Allo_Run",
+    "2066": "Brachio_Run",
+    "2195": "Ornitho_Run",
+    "2209": "Ornitho_Run",
+    "2194": "Macrau_Run",
+    "2208": "Macrau_Run",
+    "2190": "Ornitho_Run",
+    "2166": "Macrau_Run",
+    "2164": "Macrau_Run",
+    "2162": "Ornitho_Run",
+    "2149": "Ornitho_Run",
+    "2142": "Ornitho_Run",
+    "2045": "Ornitho_Run",
+    "2135": "Onehand_Run",
+    "2137": "Onehand_Run",
+    "2134": "Onehand_Run",
+    "2136": "Onehand_Run",
+    "2130": "Ornitho_Run",
+    "2127": "Macrau_Run",
+    "2148": "Macrau_Run",
+    "2118": "Ornitho_Run",
+    "2025": "Ornitho_Run",
+    "2103": "Macrau_Run",
+    "2101": "Para_Run",
+    "2009": "Para_Run",
+    "2097": "Ornitho_Run",
+    "2014": "Ornitho_Run",
+    "2093": "Ornitho_Run",
+    "2119": "Ornitho_Run",
+    "2090": "Ornitho_Run",
+    "2146": "Ornitho_Run",
+    "2080": "Macrau_Run",
+    "2079": "Macrau_Run",
+    "2092": "Macrau_Run",
+    "2070": "Wolf_Run",
+    "2091": "Wolf_Run",
+    "2206": "Wolf_Run",
+    "2069": "Wolf_Run",
+    "2204": "Wolf_Run",
+    "2063": "Macrau_Run",
+    "2062": "Tricera_Run",
+    "2144": "Tricera_Run",
+    "2145": "Tricera_Run",
+    "2003": "Tricera_Run",
+    "2059": "Pachy_Run",
+    "2022": "Pachy_Run",
+    "2058": "Ornitho_Run",
+    "2120": "Ornitho_Run",
+    "2016": "Ornitho_Run",
+    "2057": "Macrau_Run",
+    "2013": "Macrau_Run",
+    "2056": "Macrau_Run",
+    "2123": "Macrau_Run",
+    "2012": "Macrau_Run",
+    "2055": "Wolf_Run",
+    "2104": "Wolf_Run",
+    "2020": "Wolf_Run",
+    "2054": "Ankylo_Run",
+    "2132": "Ankylo_Run",
+    "2053": "Macrau_Run",
+    "2128": "Macrau_Run",
+    "2048": "Para_Run"
+  }
+}

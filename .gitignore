@@ -1,0 +1,29 @@
+# Installed game and client patch binaries
+/game/
+/server/data/patches/
+
+# Build output and local tools
+**/bin/
+**/obj/
+.vs/
+.vscode/
+__pycache__/
+.venv/
+/graphify-out/
+
+# Player/world state and local access configuration
+**/AppData*/
+*.player
+*.world
+*.bak
+*.bak-*
+.env
+.env.*
+*.user
+*.suo
+/server/data/whitelist.txt
+/server/data/banlist.txt
+
+# Runtime logs
+*.log
+*.dmp
