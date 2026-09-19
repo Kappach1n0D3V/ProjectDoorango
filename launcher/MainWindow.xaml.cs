@@ -32,7 +32,7 @@ public partial class MainWindow : Window
         ShowPage("Home");
         UpdateControls();
         Log("ProjectDoorango launcher ready. No downloads begin automatically.");
-        if (preview) { StatusBadge.Text = "●  LOCAL SERVER OFFLINE"; return; }
+        if (preview) { StatusBadge.Text = "●  READY TO START"; return; }
         timer.Tick += async (_, _) => await RefreshStatus();
         Loaded += async (_, _) => { await RefreshStatus(); timer.Start(); };
         Closing += OnClosing;
@@ -58,7 +58,10 @@ public partial class MainWindow : Window
         ClientStatus.Text = service.GameInstalled ? "Ready to play" : "Download needed";
         string installed = service.InstalledVersion();
         ClientVersion.Text = installed.Length == 40 ? "ProjectDoorango · " + installed[..7] : installed;
-        PlayButton.Content = service.GameInstalled ? "▶   Play Durango" : "↓   Install & Play";
+        PlayButton.Content = service.GameInstalled ? "Play Durango  →" : "Install & Play  ↓";
+        PlayDescription.Text = service.GameInstalled
+            ? "Your game is installed. Play starts your server and opens Durango."
+            : "One click downloads the game, sets up your world, and starts your adventure.";
         GatewaySummary.Text = prefs.Gateway;
         ServerStatus.Text = service.OwnsServer ? "Running" : service.ServerInstalled ? "Ready to start" : "Not installed";
         ServerHint.Text = service.OwnsServer ? "Started by this launcher" : "Your own world, on this PC";
@@ -82,8 +85,8 @@ public partial class MainWindow : Window
         {
             bool online = await service.IsOnlineAsync(prefs.Gateway);
             if (closing) return;
-            StatusBadge.Text = online ? "●  SERVER ONLINE" : "●  SERVER OFFLINE";
-            StatusBadge.Foreground = (Brush)new BrushConverter().ConvertFromString(online ? "#B8E68B" : "#E1BF84")!;
+            StatusBadge.Text = online ? "●  SERVER ONLINE" : LauncherService.CanStartLocal(prefs.Gateway) && prefs.AutoStart ? "●  STARTS WHEN YOU PLAY" : "●  SERVER OFFLINE";
+            StatusBadge.Foreground = (Brush)new BrushConverter().ConvertFromString(online ? "#F0BE76" : "#E1BF84")!;
             UpdateControls();
             if (online && !service.OwnsServer)
             {
@@ -151,10 +154,10 @@ public partial class MainWindow : Window
         foreach (var (key, page, button) in pages)
         {
             page.Visibility = key == name ? Visibility.Visible : Visibility.Collapsed;
-            button.Background = key == name ? new SolidColorBrush(Color.FromRgb(36, 55, 44)) : Brushes.Transparent;
-            button.Foreground = key == name ? new SolidColorBrush(Color.FromRgb(184, 230, 139)) : Brushes.LightGray;
+            button.Background = key == name ? new SolidColorBrush(Color.FromRgb(47, 43, 36)) : Brushes.Transparent;
+            button.Foreground = key == name ? new SolidColorBrush(Color.FromRgb(240, 190, 118)) : Brushes.LightGray;
         }
-        PageTitle.Text = name switch { "Home" => "Your next expedition", "Downloads" => "Downloads & updates", "Settings" => "Your setup", _ => "Activity" };
+        PageTitle.Text = name switch { "Home" => "Welcome to Doorango", "Downloads" => "Downloads & updates", "Settings" => "Settings", _ => "Troubleshooting" };
     }
 
     async void Play(object sender, RoutedEventArgs e)
