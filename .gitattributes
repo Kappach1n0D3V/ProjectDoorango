@@ -1,0 +1,2 @@
+# Preserve installed client bytes, including manifest/checksum inputs.
+game/** -text

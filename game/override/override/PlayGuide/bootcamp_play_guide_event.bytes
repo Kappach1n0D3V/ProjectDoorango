@@ -1,0 +1,934 @@
+
+{
+  "delay_for_arriving_bootcamp": {
+    "is_system": true,
+    "duration": 3.0,
+    "unlock_menus": [
+      "Faction"
+    ],
+  },
+  "survival_memo_wreck_bootcamp": {
+    "is_system": true,
+    "duration": 5.0,
+  },
+  "delay_for_memo_bootcamp": {
+    "is_system": true,
+    "duration": 3.0,
+  },
+  "k_no_answer_bootcamp": {
+    "autorun": true,
+    "name_tag": " ",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "(항해 중 배가 <em>난파</em>해 가까운 섬으로 내렸다.)",
+      "(<em>K</em>와는 연락이 되지 않는다.\n누구든 들으라고 무전을 쳤다.)"
+    ],
+  },
+  "system_radio_bootcamp": {
+    "is_system": true,
+    "duration": 5.0,
+  },
+  "monologue_for_lama_bootcamp": {
+    "autorun": true,
+    "name_tag": " ",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "(다른 무전이 잡힌다.)"
+    ],
+  },
+  "survival_expert_introduce_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]자네 무전은 잘 들었어.\n워프에다 배까지 난파라니 눈물나게 억울하겄어.[-]",
+      "[89D2FF]그래도 말이여.\n듀랑고에서도 삶은 눈부신 것이여.[-]",
+      "[89D2FF]자네 이름은 무엇인감? 나는 <em>닥터 라마</em>여.\n…… 자네 이름은 좋은 이름이구먼.[-]",
+      "[89D2FF]자, 해볼 수 있는 것부터 해보세.\n잠깐 <em>물가</em>로 갈 수 있겠어?[-]"
+    ],
+  },
+  "todo_find_freswater_bootcamp": {
+    "is_system": true,
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "find_biome_water",
+        "type": "find_biome",
+        "id": "warmOcean | lake | river",
+        "message": "<link>물</link> 찾기",
+        "tooltip": "물은 바다나, 호수, 강에 있습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "biome",
+        "id": "warmOcean | lake | river",
+      }
+    ],
+  },
+  "survival_expert_talk_sonar_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]무전기가 뭔가 이상하지 않어?\n<em>물에 들어가면</em> 잡히는 게 있을 것이여.[-]",
+      "[89D2FF]노이즈가 잡히면 말이여.\n갸들 <em>방향성</em>을 잘 봐둬.[-]"
+    ],
+  },
+  "todo_sonar_bootcamp": {
+    "is_system": true,
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "interaction_warphole_detection",
+        "type": "do_interaction",
+        "id": "SearchWarphole",
+        "message": "물에서 <link>탐색</link>하기",
+        "tooltip": "물에 들어가면 오른쪽 아래에\n탐색 버튼이 활성화 됩니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "context_action",
+        "click_targets": {
+          "current": {
+            "id": "SearchWarphole",
+          }
+        }
+      }
+    ],
+  },
+  "delay_for_sonar_bootcamp": {
+    "is_system": true,
+    "duration": 5.0,
+  },
+  "survival_expert_talk_crater_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]<em>방향</em>이 잡히지? 어뗘?\n뭔가 아니까 세상이 좀 더 이해할 만 혀?[-]",
+      "[89D2FF]차분하게 마음을 가다듬고 방향을 따라 가 보셔.\n달의[-] <em>크레이터</em> [89D2FF]같은 구덩이가 보일 거여.[-]"
+    ],
+  },
+  "survival_memo_sonar_bootcamp": {
+  },
+  "todo_find_crater_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "todo_find_crater",
+        "type": "find_immovable",
+        "id": "15002 | 15004",
+        "radius": 200,
+        "message": "크레이터 같은 <link>구덩이</link> 찾기",
+        "tooltip": "섬 내에 구덩이가 있습니다.\n주변은 방사형으로 갈라졌습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "nearest_poi",
+        "id": "crater",
+      }
+    ],
+  },
+  "delay_for_system_crater_corporation_bootcamp": {
+    "is_system": true,
+    "duration": 4.0,
+  },
+  "system_crater_corporation_bootcamp": {
+    "is_system": true,
+    "duration": 4.0,
+    "messages": [
+      "<em>돋보기 아이콘</em>을 터치하여 자원의 분포를 눈여겨 보십시오.",
+      "<em>크레이터</em>는 자원이 집중된 장소입니다."
+    ],
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "click_interactionhelper_bootcamp",
+        "type": "click_button",
+        "id": "InteractionHelperGroup/HelperButton",
+        "message": "<link>돋보기</link> 터치하기",
+        "tooltip": "오른쪽 아래의 돋보기를 터치해\n주변에 무엇이 있는지 알 수 있습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "click_targets": {
+          "current": {
+            "id": "InteractionHelperGroup/HelperButton/Sprite",
+            "x": -0.03,
+            "y": 0.15,
+            "rotate": -135,
+          }
+        }
+      }
+    ],
+  },
+  "know_chamber_bootcamp": {
+    "custom_cmd": "Activate_Faction(faction:ChamberOfPioneer)",
+  },
+  "delay_for_crater_bootcamp": {
+    "is_system": true,
+    "duration": 4.0,
+  },
+  "survival_expert_talk_supplies_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]흠…, 아직 <em>단체</em>들 무전이 닿는 거 보니\n시간 여유가 있는 것 같기도 허고...[-]",
+      "[89D2FF]자네 <em>크레이터</em>는 찾았는가?\n그걸 보고 자네 기분이 좀 나아졌으면 좋겄어.[-]",
+      "[89D2FF]자, 듀랑고에선 자신을 아는 게 중요혀.\n자신의 <em>스킬</em>이 뭔지 이해해야지.[-]"
+    ],
+  },
+  "todo_check_skill_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "todo_view_skill_list",
+        "type": "view_skill_list",
+        "message": "<link>스킬</link> 확인하기",
+        "tooltip": "왼쪽 하단의 메뉴를 눌러 스킬을 선택해\n자신의 스킬을 확인할 수 있습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "skill",
+        "click_targets": {
+          "select_category": {
+          }
+        }
+      }
+    ],
+  },
+  "system_skill_bootcamp": {
+    "is_system": true,
+    "messages": [
+      "<em>스킬 계열</em>별로 <em>자세히 보기</em>를 터치해 스킬을 배울 수 있습니다.",
+      "<em>채집, 건설, 제작</em> 등의 활동엔 고유한 스킬이 필요한 경우가 많습니다."
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "click_targets": {
+          "current": {
+            "id": "SkillGroup/UITitle/CloseButton",
+            "x": -0.03,
+            "y": 0.05,
+            "rotate": -45,
+          }
+        }
+      }
+    ],
+  },
+  "delay_for_hunting_talk_bootcamp": {
+    "is_system": true,
+    "duration": 4.0,
+  },
+  "survival_expert_talk_hunting_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]자네 얘기를 듣자니 말이여.[-]\n<em>마을섬</em>[89D2FF]으로 가다[-] <em>불안정섬</em>[89D2FF]에 온 것 같어.[-]",
+      "[89D2FF]<em>마을섬</em>을 찾아 다시 가야 혀.\n근데 몸 상태가 말이 아니겠구먼.[-]",
+      "[89D2FF]몸을 추스를 필요가 있어.\n작은 동물을 <em>사냥</em>해서 <em>고기</em>라도 자셔야지.[-]",
+      "[89D2FF]맨손으로 싸우지 말구[-]\n<em>장비</em>[89D2FF]할 만한 건 꼭 장비혀.[-]"
+    ],
+  },
+  "todo_click_equip_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "menu_button_equip",
+        "type": "menu_button",
+        "id": "equip",
+        "message": "<link>장비</link> 점검하기",
+        "tooltip": "왼쪽 하단의 메뉴를 눌러 장비를 선택해\n아이템을 장착하거나 교체할 수 있습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "menu",
+        "click_targets": {
+          "select_menu": {
+            "id": "equip",
+          }
+        }
+      }
+    ],
+  },
+  "todo_equip_mainslot_bootcamp": {
+    "is_system": true,
+    "duration": 2.0,
+    "messages": [
+      "적절한 <em>무기</em>를 <em>장비</em>하세요."
+    ],
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "equip_mainslot",
+        "type": "equip",
+        "id": "main | both",
+        "message": "무기 <link>장착</link>하기",
+        "tooltip": "장비 창을 열어 무기를 장비하세요.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "equip",
+        "click_targets": {
+          "select_slot": {
+            "id": "Main",
+          },
+          "select_item": {
+            "param": "axe_onehand",
+          }
+        }
+      }
+    ],
+  },
+  "system_close_equip_after_mainslot": {
+    "is_system": true,
+    "duration": 5.0,
+    "helper": [
+      {
+        "type": "click",
+        "click_targets": {
+          "current": {
+            "id": "EquipGroup/UITitle/CloseButton",
+            "x": -0.03,
+            "y": 0.05,
+            "rotate": -45,
+          }
+        }
+      }
+    ],
+  },
+  "todo_find_meat_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "get_some_meat_bootcamp",
+        "type": "get",
+        "tag": "meat",
+        "count": 1,
+        "message": "사냥으로 <link>고기</link> 구하기",
+        "tooltip": "이 섬에는 <em>콤프소그나투스</em>가 있습니다.\n고기는 죽은 동물에게 얻을 수도 있습니다.",
+      }
+    ],
+  },
+  "delay_for_meat_bootcamp": {
+    "is_system": true,
+    "duration": 4.0,
+  },
+  "survival_expert_talk_firewood_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]내가 무전기로 말은 쉽게 했지만 말이여.\n갑자기 <em>고기</em>를 구하란 게 쉽진 않았을 거여.[-]",
+      "[89D2FF]자넨 잘 해주고 있어.\n인자 고기를 익혀 먹게 <em>땔감</em>을 찾아봐.[-]",
+      "[89D2FF]<em>잎, 통나무, 나뭇가지</em> 같이 타는 거 말여.[-]"
+    ],
+  },
+  "todo_find_firewood_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "get_burnable",
+        "type": "get",
+        "tag": "burnable",
+        "count": 4,
+        "message": "잎/통나무 등 <link>땔감</link> 모으기",
+        "tooltip": "땔감으론 잎, 통나무, 나뭇가지 등이 있습니다.",
+      }
+    ],
+  },
+  "survival_memo_crater_bootcamp": {
+  },
+  "delay_for_build_bonfire_bootcamp": {
+    "is_system": true,
+    "duration": 4.0,
+  },
+  "talk_build_bonfire_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]<em>불</em> 피우는 법은 아는가?\n아아? 무전기 안에 금속 부싯돌이 있다구?[-]",
+      "[89D2FF]그 무전기는 아마 K가 준 건가 보구먼.[-]"
+    ],
+  },
+  "todo_build_bonfire_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "build_bonfire",
+        "type": "build",
+        "id": "bonfire",
+        "message": "<link>모닥불</link> 피우기",
+        "tooltip": "모닥불을 건설할 장소에서\n불을 피우세요.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "build",
+        "click_targets": {
+          "select_category": {
+            "id": "residence",
+          },
+          "select_recipe": {
+            "id": "bonfire",
+          },
+          "interaction": {
+            "param": "7000",
+            "x": -0.03,
+            "y": 0.05,
+          },
+          "interaction_button": {
+            "id": "BuildArtifact",
+            "x": -0.03,
+            "y": 0.05,
+          }
+        }
+      }
+    ],
+  },
+  "delay_for_bough_bootcamp": {
+    "is_system": true,
+    "duration": 4.0,
+  },
+  "talk_find_bough_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]거기가 마을섬도 아니고 캠프도 아니니 말이여.\n조리도구가 없으니 <em>꼬치구이</em>로 해 보자구.[-]",
+      "[89D2FF]꼬치로 <em>나뭇가지</em>를 쓰는 게 좋겠어.[-]"
+    ],
+  },
+  "todo_find_bough_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "get_sticks_skewer",
+        "type": "get",
+        "tag": "(stick_normal | stick_short | stick_long)&(!weapon)",
+        "count": 1,
+        "message": "꼬치구이용 <link>나뭇가지</link> 구하기",
+        "tooltip": "나뭇가지는 막대 속성을 갖습니다.\n가방에서 아이템을 눌러 확인할 수 있습니다.",
+      }
+    ],
+  },
+  "todo_make_skewer_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "craft_skewer",
+        "type": "craft",
+        "tag": "eatable",
+        "id": "skewer",
+        "message": "모닥불에서 <link>꼬치구이</link> 요리하기",
+        "tooltip": "모닥불을 터치해 제작,\n꼬치구이를 선택합니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "interaction_and_craft",
+        "click_targets": {
+          "interaction": {
+            "param": "7000",
+            "x": -0.03,
+            "y": 0.05,
+          },
+          "interaction_button": {
+            "id": "Craft",
+            "x": -0.03,
+            "y": 0.05,
+          },
+          "select_category": {
+            "id": "cook",
+          },
+          "select_recipe": {
+            "id": "skewer",
+          }
+        }
+      }
+    ],
+  },
+  "delay_for_another_bootcamp": {
+    "is_system": true,
+    "duration": 5.0,
+  },
+  "survival_expert_talk_find_another_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]그 섬을 떠나려면 떠나기 좋은 곳을 찾아야 할 터인디,\n섬을 더 탐색할 필요가 있겠구만.[-]",
+      "[89D2FF]<em>크레이터</em>를 힌트로 쓰셔.\n교통 표지판 같은 거라고 생각혀.[-]"
+    ],
+  },
+  "todo_find_second_crater_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "todo_find_crater",
+        "type": "find_immovable",
+        "id": "15002 | 15004",
+        "radius": 200,
+        "message": "크레이터 같은 <link>구덩이</link> 찾기",
+        "tooltip": "섬 내에 구덩이가 있습니다.\n주변은 방사형으로 갈라졌습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "nearest_poi",
+        "id": "crater",
+      }
+    ],
+  },
+  "delay_for_system_crater_resource_bootcamp": {
+    "is_system": true,
+    "duration": 3.0,
+  },
+  "system_crater_resource_bootcamp": {
+    "is_system": true,
+    "duration": 5.0,
+    "messages": [
+      "듀랑고의 <em>단체</em>들은 크레이터 주변 자원에 관심이 있습니다.",
+      "다른 불안정섬의 <em>캠프</em>에서 단체의 <em>임무</em>를 수행할 수 있습니다."
+    ],
+  },
+  "know_forum_bootcamp": {
+    "custom_cmd": "Activate_Faction(faction:ChlorophylForum)",
+  },
+  "survival_memo_corporation_bootcamp": {
+  },
+  "delay_for_clothes_bootcamp": {
+    "is_system": true,
+    "duration": 5.0,
+  },
+  "survival_expert_talk_leaves_clothes_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]참 <em>단체</em>들이 열심이긴 혀.\n섬마다 저리 무전을 때리고 말이여.[-]",
+      "[89D2FF]자네가 가닥을 잡아가는 것 같아 다행이여.\n원래 머리가 좋은 친구구먼.[-]",
+      "[89D2FF]자네 옷차림은 어떤겨?\n기후에 맞게 입었나 걱정이 되는구먼.[-]",
+      "[89D2FF]날씨가 습하고 덥잖여.\n<em>나뭇잎</em>으로라도 입을 <em>옷</em>이 필요혀.[-]"
+    ],
+  },
+  "todo_get_leaves_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "get_clothes_wild_leaf",
+        "type": "get",
+        "tag": "leaf | leather",
+        "count": 4,
+        "message": "옷감용 <link>잎</link> 구하기",
+        "tooltip": "잎은 나무에서 구할 수 있습니다.",
+      }
+    ],
+  },
+  "todo_make_clothes_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "craft_leaf_clothes",
+        "type": "craft",
+        "tag": "clothes",
+        "id": "clothes_leaf_01",
+        "message": "<link>나뭇잎옷</link> 만들기",
+        "tooltip": "메뉴-제작/건설-의류-나뭇잎옷\n선택할 수 있습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "craft",
+        "click_targets": {
+          "select_category": {
+            "id": "clothing",
+          },
+          "select_recipe": {
+            "id": "clothes_leaf_01",
+          }
+        }
+      }
+    ],
+  },
+  "todo_click_equip_2_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "menu_button_equip_2",
+        "type": "menu_button",
+        "id": "equip",
+        "message": "<link>장비</link> 점검하기",
+        "tooltip": "왼쪽 하단의 메뉴를 눌러 장비를 선택해\n아이템을 장착하거나 교체할 수 있습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "menu",
+        "click_targets": {
+          "select_menu": {
+            "id": "equip",
+          }
+        }
+      }
+    ],
+  },
+  "todo_equip_bodyslot_bootcamp": {
+  },
+  "system_equip_bodyslot_bootcamp": {
+    "is_system": true,
+    "duration": 5.0,
+    "messages": [
+      "<em>나뭇잎옷</em>을 <em>장착</em>하세요."
+    ],
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "equip_bodyslot",
+        "type": "equip",
+        "tag": "leaf",
+        "id": "body",
+        "message": "나뭇잎옷 <link>장착</link>하기",
+        "tooltip": "장비 창을 열어 나뭇잎옷을 장비하세요.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "equip",
+        "click_targets": {
+          "select_slot": {
+            "id": "Body",
+            "rotate": 90,
+          },
+          "select_item": {
+            "param": "leaf",
+          }
+        }
+      }
+    ],
+  },
+  "system_close_equip_after_bodyslot": {
+    "is_system": true,
+    "duration": 5.0,
+    "helper": [
+      {
+        "type": "click",
+        "click_targets": {
+          "current": {
+            "id": "EquipGroup/UITitle/CloseButton",
+            "x": -0.03,
+            "y": 0.05,
+            "rotate": -45,
+          }
+        }
+      }
+    ],
+  },
+  "delay_for_clothing_bootcamp": {
+    "is_system": true,
+    "duration": 3.0,
+  },
+  "survival_expert_talk_tent_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]이제 자네가 <em>마을섬</em>에 가게 되면\n다들 자네가 한가닥하는 친구라 생각할 거여.[-]",
+      "[89D2FF]아까는 눈앞이 완전 깜깜했는데\n인자는 좀 나아지지 않았을까 이리 생각도 혀. 허허.[-]",
+      "[89D2FF]<em>휴식처</em>를 확보하는 것도 중요허니\n<em>간이 천막</em> 지을 <em>재료</em>라도 준비해두셔.[-]"
+    ],
+  },
+  "todo_get_tent_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "get_stick_tent",
+        "type": "get",
+        "tag": "stick_normal | stick_long | stick_short",
+        "count": 2,
+        "message": "천막, 깃발 기둥용 <link>나뭇가지</link> 구하기",
+        "tooltip": "나뭇가지는 나무에서\n돌날로 얻을 수 있습니다.",
+      },
+      {
+        "name": "get_sheet_tent",
+        "type": "get",
+        "tag": "(sheet_wide | sheet_normal | sheet_narrow)&(!armor)",
+        "count": 6,
+        "message": "천막, 깃발용 <link>잎</link> 구하기",
+        "tooltip": "잎은 나무에서 구합니다.\n천막의 지붕이나 깃발의 천으로 씁니다.",
+      }
+    ],
+  },
+  "survival_expert_talk_port_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]자네가 놀랄까봐 말을 아껴뒀는데[-]\n<em>불안정섬</em>[89D2FF]은 시간이 지나면 사라져.[-]",
+      "[89D2FF]그런 땔수록 평정심을 유지하는 게 중요혀서\n모험에 일상적으로 필요한 것들을 설명했지.[-]",
+      "[89D2FF]자자, 그 섬에 개척자 <em>캠프</em>가 없는 걸 보니\n개척자 친구들은 진작 철수한 것 같어.[-]",
+      "[89D2FF]그 친구들이 상륙했던 <em>항구</em>가 있을 거여.\n<em>동남쪽</em>으로 가 보는 게 어뗘?[-]"
+    ],
+  },
+  "todo_find_port_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "todo_find_dock",
+        "type": "find_immovable",
+        "id": "7001",
+        "radius": 500,
+        "message": "동남쪽 해변의 <link>항구</link> 찾기",
+        "tooltip": "항구는 다른 섬으로 갈 수 있는 경로입니다.\n개척자들이 동남쪽 해변에 항구를 세웠습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "nearest_poi",
+        "id": "port",
+      }
+    ],
+  },
+  "survival_memo_port_bootcamp": {
+  },
+  "delay_for_memo_and_port_bootcamp": {
+    "is_system": true,
+    "duration": 2.0,
+  },
+  "survival_expert_talk_last_bootcamp": {
+    "autorun": true,
+    "portrait": "faction",
+    "faction": "Lama",
+    "name_tag": "닥터 라마",
+    "remote": true,
+    "is_blur": true,
+    "messages": [
+      "[89D2FF]갈 방법이 있다니 다행이구먼.\n<em>마을섬</em>으로 어여 가시오.[-]",
+      "[89D2FF]사는 게 쉽지 않지만 볕들 날이 있을 거여.\n또 보자구. 자네.[-]"
+    ],
+  },
+  "todo_sail_stable_island_bootcamp": {
+    "is_system": true,
+    "messages": [
+      "<em>항구</em>를 터치해 <em>마을섬</em>으로 <em>항해</em>할 수 있습니다."
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "interaction",
+        "click_targets": {
+          "interaction": {
+            "param": "7001",
+            "x": -0.03,
+            "y": 0.05,
+          },
+          "interaction_button": {
+            "id": "SailingRoutes",
+            "x": -0.03,
+            "y": 0.05,
+          }
+        }
+      }
+    ],
+  },
+  "health_low_notify": {
+    "autorun": true,
+    "name_tag": " ",
+    "messages": [
+      "(<em>건강</em>이 좋지 않다.\n약을 먹거나 쉬어야겠다.)"
+    ],
+  },
+  "system_explain_death_penalty": {
+    "is_system": true,
+    "duration": 2.0,
+    "messages": [
+      "죽으면 가방 안의 아이템 일부를 <em>잃습니다</em>."
+    ],
+  },
+  "energy_low_notify": {
+    "autorun": true,
+    "name_tag": " ",
+    "messages": [
+      "(<em>에너지</em>가 부족하다.\n뭔가 먹어야겠다.)"
+    ],
+  },
+  "player_dead_delay_bootcamp": {
+    "is_system": true,
+    "duration": 10.0,
+  },
+  "player_dead_bootcamp": {
+    "is_system": true,
+    "duration": 3.0,
+    "messages": [
+      "해변에서 <em>부활</em>하거나, 주변에 <em>구조 요청</em>할 수 있습니다."
+    ],
+  },
+  "status_caution_bootcamp": {
+    "autorun": true,
+    "name_tag": " ",
+    "is_blur": true,
+    "messages": [
+      "(피곤하다.\n쉬자.)"
+    ],
+  },
+  "status_danger_bootcamp": {
+    "autorun": true,
+    "name_tag": " ",
+    "is_blur": true,
+    "messages": [
+      "(상당히 피곤하다.\n<em>휴식</em>을 취하자.)"
+    ],
+  },
+  "delay_for_knife_bootcamp": {
+    "is_system": true,
+    "duration": 3.0,
+  },
+  "talk_knife_bootcamp": {
+    "autorun": true,
+    "name_tag": " ",
+    "is_blur": true,
+    "messages": [
+      "(작업용 칼이 없다.\n<em>돌멩이</em>를 구해 <em>돌날</em>을 만드는 게 좋겠다.)"
+    ],
+  },
+  "find_stone_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "get_stone_ancora",
+        "type": "get",
+        "tag": "stone & (chunk_normal | chunk_big | chunk_small)",
+        "message": "<link>돌멩이</link> 구하기",
+        "tooltip": "주변을 둘러보면 바위에서나\n작은 돌무더기에서 구할 수 있습니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "interaction",
+        "click_targets": {
+          "interaction": {
+            "param": "12000 | 12003 | 12010 | 12013 | 12134 | 12137 | 13002",
+            "x": -0.03,
+            "y": 0.05,
+          },
+          "interaction_button": {
+            "id": "Collect",
+            "param": "stone",
+            "x": -0.03,
+            "y": 0.05,
+          }
+        }
+      }
+    ],
+  },
+  "make_stone_blade_bootcamp": {
+    "todo_title": "난파",
+    "todos": [
+      {
+        "name": "craft_stoneblade",
+        "type": "craft",
+        "tag": "knife",
+        "id": "blade_stone",
+        "message": "<link>돌날</link> 만들기",
+        "tooltip": "돌날은 돌멩이를 쪼개 만들기에\n돌멩이만 있으면 됩니다.",
+      }
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "craft",
+        "click_targets": {
+          "select_category": {
+            "id": "weapon_and_tool",
+          },
+          "select_recipe": {
+            "id": "blade_stone",
+          }
+        }
+      }
+    ],
+  },
+  "need_more_skill_bootcamp": {
+    "name_tag": " ",
+    "is_blur": true,
+    "messages": [
+      "(아직 다루기 어려운 대상같다.\n<em>스킬</em>이 있어야 할 것 같다.)"
+    ],
+  },
+  "click_skill_menu_bootcamp": {
+    "is_system": true,
+    "messages": [
+      "<em>스킬</em> 메뉴를 열면 스킬과 숙련도 현황을 알 수 있습니다."
+    ],
+    "helper": [
+      {
+        "type": "click",
+        "id": "menu",
+        "click_targets": {
+          "select_menu": {
+            "id": "skill",
+          }
+        }
+      }
+    ],
+  }
+}

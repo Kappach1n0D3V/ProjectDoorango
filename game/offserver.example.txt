@@ -1,0 +1,4 @@
+# Copy this file to offserver.txt to connect to your local server.
+gateway=http://127.0.0.1:8190
+name=ProjectDoorango
+# Optional: set account=<your-own-key> before creating your first character.

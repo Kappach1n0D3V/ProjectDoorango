@@ -1,0 +1,121 @@
+{
+  "normal_flow": {
+    "flow": [
+      "delay_for_arriving_bootcamp",
+      "survival_memo_wreck_bootcamp",
+      "delay_for_memo_bootcamp",
+      "k_no_answer_bootcamp",
+      "system_radio_bootcamp",
+      "monologue_for_lama_bootcamp",
+      "survival_expert_introduce_bootcamp",
+      "todo_find_freswater_bootcamp",
+      "survival_expert_talk_sonar_bootcamp",
+      "todo_sonar_bootcamp",
+      "delay_for_sonar_bootcamp",
+      "survival_expert_talk_crater_bootcamp",
+      "survival_memo_sonar_bootcamp",
+      "todo_find_crater_bootcamp",
+      "delay_for_system_crater_corporation_bootcamp",
+      "system_crater_corporation_bootcamp",
+      "know_chamber_bootcamp",
+      "delay_for_crater_bootcamp",
+      "survival_expert_talk_supplies_bootcamp",
+      "todo_check_skill_bootcamp",
+      "system_skill_bootcamp",
+      "delay_for_hunting_talk_bootcamp",
+      "survival_expert_talk_hunting_bootcamp",
+      "todo_click_equip_bootcamp",
+      "todo_equip_mainslot_bootcamp",
+      "system_close_equip_after_mainslot",
+      "todo_find_meat_bootcamp",
+      "delay_for_meat_bootcamp",
+      "survival_expert_talk_firewood_bootcamp",
+      "todo_find_firewood_bootcamp",
+      "survival_memo_crater_bootcamp",
+      "delay_for_build_bonfire_bootcamp",
+      "talk_build_bonfire_bootcamp",
+      "todo_build_bonfire_bootcamp",
+      "delay_for_bough_bootcamp",
+      "talk_find_bough_bootcamp",
+      "todo_find_bough_bootcamp",
+      "todo_make_skewer_bootcamp",
+      "delay_for_another_bootcamp",
+      "survival_expert_talk_find_another_bootcamp",
+      "todo_find_second_crater_bootcamp",
+      "delay_for_system_crater_resource_bootcamp",
+      "system_crater_resource_bootcamp",
+      "know_forum_bootcamp",
+      "survival_memo_corporation_bootcamp",
+      "delay_for_clothes_bootcamp",
+      "survival_expert_talk_leaves_clothes_bootcamp",
+      "todo_get_leaves_bootcamp",
+      "todo_make_clothes_bootcamp",
+      "todo_click_equip_2_bootcamp",
+      "todo_equip_bodyslot_bootcamp",
+      "system_equip_bodyslot_bootcamp",
+      "system_close_equip_after_bodyslot",
+      "delay_for_clothing_bootcamp",
+      "survival_expert_talk_tent_bootcamp",
+      "todo_get_tent_bootcamp",
+      "survival_expert_talk_port_bootcamp",
+      "todo_find_port_bootcamp",
+      "survival_memo_port_bootcamp",
+      "delay_for_memo_and_port_bootcamp",
+      "survival_expert_talk_last_bootcamp",
+      "todo_sail_stable_island_bootcamp",
+    ]
+  },
+  "tool_needed_bootcamp_flow": {
+    "type": "no_item",
+    "param": "knife",
+    "flow": [
+      "delay_for_knife_bootcamp",
+      "talk_knife_bootcamp",
+      "find_stone_bootcamp",
+      "make_stone_blade_bootcamp",
+    ]
+  },
+  "health_low": {
+    "type": "gauge_low_50",
+    "param": "health",
+    "flow": [
+      "health_low_notify",
+      "system_explain_death_penalty",
+    ]
+  },
+  "energy_low": {
+    "type": "gauge_low_20",
+    "param": "energy",
+    "flow": [
+      "energy_low_notify",
+    ]
+  },
+  "player_dead_bootcamp_flow": {
+    "type": "player_dead",
+    "flow": [
+      "player_dead_delay_bootcamp",
+      "player_dead_bootcamp",
+    ]
+  },
+  "status_caution_bootcamp_flow": {
+    "type": "status_effect",
+    "param": "fatigue_caution",
+    "flow": [
+      "status_caution_bootcamp",
+    ]
+  },
+  "status_danger_bootcamp_flow": {
+    "type": "status_effect",
+    "param": "fatigue_danger",
+    "flow": [
+      "status_danger_bootcamp",
+    ]
+  },
+  "need_more_skill_bootcamp_flow": {
+    "type": "collect_skill_needed",
+    "flow": [
+      "need_more_skill_bootcamp",
+      "click_skill_menu_bootcamp"
+    ]
+  }
+}

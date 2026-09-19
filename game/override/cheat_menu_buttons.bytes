@@ -1,0 +1,435 @@
+[
+  {
+    "": [
+      {
+        "type": "Page",
+        "text": "Build instantly",
+        "command": "#Blueprint#"
+      },
+      {
+        "type": "Page",
+        "text": "Get item (search)",
+        "command": "#Item#"
+      },
+      {
+        "type": "Page",
+        "text": "Get collectible",
+        "command": "#Collectible#"
+      },
+      {
+        "type": "Parent",
+        "text": "Character status",
+        "command": "Status"
+      },
+      {
+        "type": "Parent",
+        "text": "Adjust stats",
+        "command": "Condition"
+      },
+      {
+        "type": "Parent",
+        "text": "No restrictions",
+        "command": "Action"
+      },
+      {
+        "type": "Page",
+        "text": "Spawn animal",
+        "command": "#Animal#"
+      },
+      {
+        "type": "Parent",
+        "text": "Travel to island",
+        "command": "#Emigrate#"
+      },
+      {
+        "type": "Parent",
+        "text": "Convenience",
+        "command": "Convenience"
+      },
+      {
+        "type": "Page",
+        "text": "Market expiry",
+        "command": "#Market#"
+      }
+    ]
+  },
+  {
+    "#ItemCategory#": [],
+    "#Emigrate#": [
+      {
+        "type": "Parent",
+        "text": "Seasonal islands",
+        "command": "#Seasonal#"
+      },
+      {
+        "type": "Parent",
+        "text": "Risky islands",
+        "command": "#Risky#"
+      },
+      {
+        "type": "Parent",
+        "text": "Risky archipelago",
+        "command": "#Apopenia#"
+      },
+      {
+        "type": "Parent",
+        "text": "Raid islands",
+        "command": "#Raid#"
+      },
+      {
+        "type": "Parent",
+        "text": "Urban islands",
+        "command": "#Urban#"
+      },
+      {
+        "type": "Parent",
+        "text": "Personal islands",
+        "command": "#Persoanl#"
+      },
+      {
+        "type": "Parent",
+        "text": "Outpost islands",
+        "command": "#Outpost#"
+      },
+      {
+        "type": "Parent",
+        "text": "Special islands",
+        "command": "#Misc#"
+      },
+      {
+        "type": "Parent",
+        "text": "Tutorial islands",
+        "command": "#Tutorial#"
+      },
+      {
+        "type": "Parent",
+        "text": "Rural islands",
+        "command": "#Rural#"
+      }
+    ],
+    "Status": [
+      {
+        "type": "Push",
+        "text": "Full heal",
+        "command": "f"
+      },
+      {
+        "type": "Push",
+        "text": "Move speed x3",
+        "command": "qm 3"
+      },
+      {
+        "type": "Push",
+        "text": "Normal speed",
+        "command": "qm 1"
+      },
+      {
+        "type": "Push",
+        "text": "Invincible (character)",
+        "command": "invincible character"
+      },
+      {
+        "type": "Push",
+        "text": "Invisible move",
+        "command": "inm"
+      },
+      {
+        "type": "Confirm",
+        "text": "Clear inventory...",
+        "command": "ei",
+        "message": "정말로 인벤토리를 비우시겠습니까?"
+      },
+      {
+        "type": "Macro",
+        "text": "Clear inventory (keep tools)",
+        "command": "#ClearInventory2#"
+      },
+      {
+        "type": "Confirm",
+        "text": "Suicide...",
+        "command": "sui",
+        "message": "정말로 자살 하시겠습니까?"
+      },
+      {
+        "type": "Push",
+        "text": "No fatigue gain",
+        "command": "fat 0"
+      },
+      {
+        "type": "Push",
+        "text": "No HP loss",
+        "command": "ilf",
+        "disabled": true
+      },
+      {
+        "type": "Push",
+        "text": "No energy loss",
+        "command": "ue",
+        "disabled": true
+      },
+      {
+        "type": "Push",
+        "text": "End all play guides",
+        "command": "ga"
+      },
+      {
+        "type": "Push",
+        "text": "End play guide step 1",
+        "command": "gui"
+      },
+      {
+        "type": "Parent",
+        "text": "Test character presets",
+        "command": "SetTestCharacter"
+      },
+      {
+        "type": "Push",
+        "text": "Move speed x2",
+        "command": "qm 2"
+      },
+      {
+        "type": "Input",
+        "text": "Set move speed...",
+        "command": "qm {0}",
+        "message": "이동 속도 배속을 입력해 주십시오"
+      },
+      {
+        "type": "Toggle",
+        "text": "No aggro",
+        "command": "invisible"
+      },
+      {
+        "type": "Toggle",
+        "text": "No death",
+        "command": "invincible"
+      },
+      {
+        "type": "Confirm",
+        "text": "Delete character...",
+        "command": "des",
+        "message": "정말로 캐릭터를 삭제 하시겠습니까?"
+      }
+    ],
+    "Condition": [
+      {
+        "type": "Input",
+        "text": "Weight/volume limit...",
+        "command": "epi {0}",
+        "message": "무게/부피 제한 값을 입력해 주십시오"
+      },
+      {
+        "type": "Input",
+        "text": "Set defense...",
+        "command": "defense {0}",
+        "message": "방어력 값을 입력해 주십시오"
+      },
+      {
+        "type": "Input",
+        "text": "Set attack...",
+        "command": "attack {0}",
+        "message": "공격력 값을 입력해 주십시오"
+      },
+      {
+        "type": "Input",
+        "text": "Set fatigue...",
+        "command": "fat {0}",
+        "message": "피로도 값을 입력해 주십시오"
+      },
+      {
+        "type": "Input",
+        "text": "Set HP...",
+        "command": "l {0}",
+        "message": "생명력&건강 값을 입력해 주십시오"
+      },
+      {
+        "type": "Input",
+        "text": "Set energy...",
+        "command": "en {0}",
+        "message": "에너지 값을 입력해 주십시오"
+      },
+      {
+        "type": "Parent",
+        "text": "Fix craft result",
+        "command": "SetResultType"
+      }
+    ],
+    "Action": [
+      {
+        "type": "Confirm",
+        "text": "Kill all animals...",
+        "command": "ka",
+        "message": "정말로 모두 죽이시겠습니까?"
+      },
+      {
+        "type": "Push",
+        "text": "Unlock all recipes",
+        "command": "cm"
+      },
+      {
+        "type": "Push",
+        "text": "Unlock all blueprints",
+        "command": "bm"
+      },
+      {
+        "type": "Parent",
+        "text": "Learn skills",
+        "command": "#SkillLearning#"
+      },
+      {
+        "type": "Toggle",
+        "text": "Instant gather",
+        "command": "immediate collect"
+      },
+      {
+        "type": "Toggle",
+        "text": "Instant craft",
+        "command": "immediate craft"
+      },
+      {
+        "type": "Toggle",
+        "text": "Instant build",
+        "command": "immediate build"
+      },
+      {
+        "type": "Toggle",
+        "text": "15-second farming",
+        "command": "grow master"
+      },
+      {
+        "type": "Toggle",
+        "text": "Pioneer investment expert",
+        "command": "invest master"
+      },
+      {
+        "type": "Toggle",
+        "text": "Instant outsourcing",
+        "command": "immediate outsoucing",
+        "disabled": true
+      },
+      {
+        "type": "Toggle",
+        "text": "Unlimited gathering",
+        "command": "unlimited collect"
+      },
+      {
+        "type": "Toggle",
+        "text": "Camera zoom out",
+        "command": "camerazoom"
+      },
+      {
+        "type": "Toggle",
+        "text": "Destroy mode",
+        "command": "destroy mode"
+      },
+      {
+        "type": "Toggle",
+        "text": "Item copy mode",
+        "command": "item copy mode"
+      }
+    ],
+    "Convenience": [
+      {
+        "type": "Toggle",
+        "text": "Show attack range",
+        "command": "ar"
+      },
+      {
+        "type": "Toggle",
+        "text": "Damage meter",
+        "command": "dm"
+      },
+      {
+        "type": "Push",
+        "text": "Spawn 50 ghosts",
+        "command": "cg50"
+      },
+      {
+        "type": "Push",
+        "text": "Spawn 100 ghosts",
+        "command": "cg100"
+      },
+      {
+        "type": "Push",
+        "text": "Spawn balloon",
+        "command": "shab"
+      },
+      {
+        "type": "Push",
+        "text": "List 10 random market products",
+        "command": "insert random products"
+      },
+      {
+        "type": "Push",
+        "text": "Get all defense tower materials",
+        "command": "get_all_defensive_materials"
+      }
+    ]
+  },
+  {
+    "#Seasonal#": [],
+    "#Risky#": [],
+    "#Apopenia#": [],
+    "#Raid#": [],
+    "#Urban#": [],
+    "#Persoanl#": [],
+    "#Rural#": [],
+    "#Tutorial#": [],
+    "#Outpost#": [],
+    "#Misc#": [],
+    "#SkillLearning#": [],
+    "SetTestCharacter": [
+      {
+        "type": "Push",
+        "text": "Ancora escapee",
+        "command": "makecharacter_leave_ancora"
+      },
+      {
+        "type": "Push",
+        "text": "Lv5",
+        "command": "makecharacter5"
+      },
+      {
+        "type": "Push",
+        "text": "Lv10",
+        "command": "makecharacter10"
+      },
+      {
+        "type": "Push",
+        "text": "Lv15",
+        "command": "makecharacter15"
+      },
+      {
+        "type": "Push",
+        "text": "Lv20",
+        "command": "makecharacter20"
+      }
+    ],
+    "SetResultType": [
+      {
+        "type": "Push",
+        "text": "Big failure",
+        "command": "fix result big_failure"
+      },
+      {
+        "type": "Push",
+        "text": "Failure",
+        "command": "fix result failure"
+      },
+      {
+        "type": "Push",
+        "text": "Success",
+        "command": "fix result success"
+      },
+      {
+        "type": "Push",
+        "text": "Great success",
+        "command": "fix result great_success"
+      },
+      {
+        "type": "Push",
+        "text": "Unfix",
+        "command": "fix result"
+      }
+    ]
+  }
+]

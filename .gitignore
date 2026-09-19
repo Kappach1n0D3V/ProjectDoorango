@@ -1,5 +1,5 @@
-# Installed game and client patch binaries
-/game/
+# Machine-specific client connection settings and legacy patch binaries
+/game/offserver.txt
 /server/data/patches/
 
 # Build output and local tools
@@ -27,3 +27,9 @@ __pycache__/
 # Runtime logs
 *.log
 *.dmp
+
+# Local launcher state and preview builds
+/.launcher/
+/ProjectDoorango.exe
+/launcher/publish/
+/launcher/preview*.png

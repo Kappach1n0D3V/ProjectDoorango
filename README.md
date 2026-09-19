@@ -27,7 +27,7 @@ dotnet build server/DurangoServer.csproj -c Release
 dotnet run --project server/DurangoServer.csproj -c Release -- --data server/data --terrains server/data/terrains
 ```
 
-Obtain the game separately from the [upstream client releases](https://github.com/ShuuuuShi/Durango-OffServer-Client/releases). Extract the client into `game/` and set `gateway=http://127.0.0.1:8190` in `game/offserver.txt` for the local server. The game directory is not included in this repository.
+The complete client is included in `game/`. After cloning, copy `game/offserver.example.txt` to `game/offserver.txt` to connect to the local server. Set your own optional `account=` key before creating a character; your personal connection file is excluded from Git. Upstream client provenance: [ShuuuuShi/Durango-OffServer-Client](https://github.com/ShuuuuShi/Durango-OffServer-Client/releases).
 
 `PlayDurango.bat` is the existing Windows launcher; its server commands expect .NET at `C:\Program Files\dotnet\dotnet.exe`.
 
@@ -49,4 +49,4 @@ uv run --with UnityPy python tools/extract-animal-runs.py --write
 
 This updates the server's animation name table and writes [animal-framework-audit.json](animal-framework-audit.json), documenting verified asset references and unresolved mappings. It does not modify the game bundles.
 
-Installed client binaries, patch binaries, build output, logs, player/world saves, and local access lists are excluded from version control.
+The client binaries and assets are tracked in Git (approximately 1 GiB). Legacy patch binaries, build output, logs, player/world saves, personal connection settings, and local access lists are excluded. Client files retain their exact bytes through `.gitattributes`.
