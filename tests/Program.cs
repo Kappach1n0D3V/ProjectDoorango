@@ -18,7 +18,36 @@ static void Expect(bool condition, string message)
 }
 
 Durango.Utils.Json.DataDir = Path.GetFullPath(args[0]);
+WorkbenchTags.AssetsDir = Path.Combine(Durango.Utils.Json.DataDir, "assets");
+MoCatalog.Load(Durango.Utils.Json.DataDir);
+Expect(new Durango.Utils.Gettext("나뭇잎").ToString() == "Leaf", "server item names use extracted English catalog");
+Expect(new Durango.Utils.Gettext("줄기").ToString() == "Stalk", "gathering products use English");
+Expect(new Durango.Utils.Gettext("갈대").ToString() == "Reed", "gathering targets use English");
+Expect(new Durango.Utils.Gettext("나뭇잎", new() { ["th_TH"] = "Thai fallback", ["en_US"] = "English override" }).ToString() == "English override", "explicit English wins over Thai");
+Expect(new Durango.Utils.Gettext("untranslated-key", new() { ["th_TH"] = "Thai fallback" }).ToString() == "untranslated-key", "missing English does not select another language");
+var personalTemplates = Newtonsoft.Json.Linq.JObject.Parse(File.ReadAllText(Path.Combine(Durango.Utils.Json.DataDir, "assets", "constants.json")))["personal_region"]["region_template_ids"].Values<string>().ToArray();
+Expect(personalTemplates.SequenceEqual(Enumerable.Range(1, 5).Select(i => "pe10gr_" + i)), "personal-island choices fit the estate picker and available terrains");
 TerrainLoader.TerrainDir = Path.Combine(Durango.Utils.Json.DataDir, "terrains");
+RegionCatalog.Load(Path.Combine(Durango.Utils.Json.DataDir, "assets"));
+var newCharacter = new PlayerContext();
+newCharacter.Initialize(null);
+Expect(newCharacter.PlayerInfo.PlayerLevel == 1 && newCharacter.AppearPlayer.Level == 1,
+    "new characters start at level one in saved and client-visible state");
+newCharacter.PlayerInfo.PlayerLevel = 37;
+newCharacter.AppearPlayer.Level = 37;
+newCharacter.Initialize(null);
+Expect(newCharacter.PlayerInfo.PlayerLevel == 37 && newCharacter.AppearPlayer.Level == 37,
+    "initializing an existing character preserves its progression");
+foreach (string terrainFile in Directory.GetFiles(TerrainLoader.TerrainDir, "*.zip"))
+{
+    string id = Path.GetFileNameWithoutExtension(terrainFile);
+    var terrain = TerrainLoader.Load(id);
+    var template = RegionCatalog.GetTemplate(terrain.Info.region_template);
+    var animals = new AnimalManager(terrain, template);
+    int expected = template?.Herds.Values.Sum(group => group.Count) ?? 0;
+    Console.WriteLine($"SPAWN AUDIT {id}: configured={expected}, spawned={animals.Count}");
+    if (expected > 0) Expect(animals.Count > 0, id + " spawns its configured wildlife");
+}
 string terrainId = Path.GetFileNameWithoutExtension(Directory.GetFiles(TerrainLoader.TerrainDir, "*.zip")[0]);
 var listener = new TcpListener(IPAddress.Loopback, 0);
 listener.Start();
@@ -55,6 +84,38 @@ try
     Set(player, "_world", world);
     Set(player, "_connection", sending);
     Set(player, "<EntityId>k__BackingField", "regression-pets");
+
+    var snow = TerrainLoader.Load("sn20snow");
+    var wildlife = new AnimalManager(snow, RegionCatalog.GetTemplate(snow.Info.region_template));
+    typeof(World).GetField(nameof(World.AnimalManager)).SetValue(world, wildlife);
+    Set(player, "_animalSet", new HashSet<string>(StringComparer.Ordinal));
+    var snowAnimal = wildlife.All[0];
+    int sightings = 0;
+    receiving.Recv(delegate(AppearAnimal msg, PacketHeader header)
+    {
+        if (msg.EntityId == snowAnimal.EntityId) sightings++;
+    });
+    void SyncWildlife(int x, int y)
+    {
+        Set(player, "_centerX", x);
+        Set(player, "_centerY", y);
+        Set(player, "_nextAnimalSyncAt", double.NegativeInfinity);
+        player.SyncAnimalVisibility();
+    }
+    void ReceiveAnimal(int expected)
+    {
+        var deadline = DateTime.UtcNow.AddSeconds(3);
+        while (sightings < expected && DateTime.UtcNow < deadline)
+        {
+            sending.Process(); receiving.Process(); Thread.Sleep(5);
+        }
+        Expect(sightings == expected, "snow wildlife reaches client protocol, appearance " + expected);
+    }
+    SyncWildlife(snowAnimal.Tile.x / 16, snowAnimal.Tile.y / 16);
+    ReceiveAnimal(1);
+    SyncWildlife(10000, 10000);
+    SyncWildlife(snowAnimal.Tile.x / 16, snowAnimal.Tile.y / 16);
+    ReceiveAnimal(2);
 
     RegionMapInfo map = default;
     uint reply = 0;

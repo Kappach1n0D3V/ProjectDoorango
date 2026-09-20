@@ -20,7 +20,7 @@
     },
     "daily_velocity": -1,
     "speeds": {
-      "burn": 1E-08,
+      "burn": 1e-08,
       "destruct": 1
     }
   },
@@ -1252,15 +1252,7 @@
       "pe10gr_2",
       "pe10gr_3",
       "pe10gr_4",
-      "pe10gr_5",
-      "ra60sw",
-      "ri35de",
-      "ri35te",
-      "ri40tr",
-      "ri45sa",
-      "ri50sn",
-      "ri55tu",
-      "ua60vol"
+      "pe10gr_5"
     ],
     "return_time": 7200
   },

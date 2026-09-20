@@ -50,7 +50,7 @@ public static class MoCatalog
     /// หาไฟล์ตามลำดับ <c>locales/&lt;ภาษา&gt;/LC_MESSAGES/messages.mo</c>
     /// ไม่มีไฟล์ = ไม่พัง แค่ไม่แปล (เขียนเตือนออก log ครั้งเดียว)
     /// </summary>
-    public static void Load(string dataDir, string language = "th")
+    public static void Load(string dataDir, string language = "en")
     {
         if (_map != null) return;
         _map = new Dictionary<string, string>(StringComparer.Ordinal);

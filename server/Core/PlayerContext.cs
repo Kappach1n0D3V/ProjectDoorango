@@ -208,7 +208,7 @@ public class PlayerContext
         {
             PlayerInfo = new Durango.Logic.Clusters.PlayerInfo
             {
-                PlayerLevel = 60
+                PlayerLevel = 1
             };
             string text = Guid.NewGuid().ToString();
             PlayerInfo.PlayerEntityId = text;
